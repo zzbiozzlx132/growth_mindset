@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Growth Mindset — Tài Liệu Cốt Lõi</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f0e0c;
+    --paper: #f5f0e8;
+    --accent: #c8390a;
+    --accent2: #1a5c3a;
+    --gold: #b8860b;
+    --muted: #7a7060;
+    --card-bg: #fff9f0;
+    --border: #d4c9b0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 17px;
+    line-height: 1.75;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 60px;
+    position: relative;
+    overflow: hidden;
+    background: var(--ink);
+  }
+
+  .hero::before {
+    content: 'YET';
+    position: absolute;
+    right: -40px;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    font-family: 'Playfair Display', serif;
+    font-size: 280px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.03);
+    letter-spacing: -10px;
+    pointer-events: none;
+  }
+
+  .hero-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.2s;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(52px, 8vw, 110px);
+    font-weight: 900;
+    color: #fff;
+    line-height: 0.95;
+    letter-spacing: -2px;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.4s;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: 18px;
+    color: rgba(255,255,255,0.55);
+    max-width: 520px;
+    font-weight: 300;
+    margin-bottom: 60px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.6s;
+  }
+
+  .hero-quote {
+    border-left: 3px solid var(--accent);
+    padding-left: 24px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: rgba(255,255,255,0.7);
+    max-width: 560px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.8s;
+  }
+
+  .hero-quote cite {
+    display: block;
+    margin-top: 12px;
+    font-family: 'DM Mono', monospace;
+    font-style: normal;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--accent);
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 60px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.3);
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 1.2s;
+  }
+
+  /* NAV */
+  .toc {
+    background: var(--ink);
+    padding: 0 60px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+  }
+
+  .toc a {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    padding: 20px 24px;
+    white-space: nowrap;
+    transition: color 0.2s;
+    border-bottom: 2px solid transparent;
+  }
+
+  .toc a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  /* SECTIONS */
+  .section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 100px 60px;
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -1px;
+    margin-bottom: 48px;
+    color: var(--ink);
+  }
+
+  .section h2 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  /* DIVIDER */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* BIG TEXT */
+  .big-text {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--ink);
+    margin-bottom: 40px;
+  }
+
+  .big-text .highlight {
+    background: var(--accent);
+    color: white;
+    padding: 0 8px;
+    font-style: italic;
+  }
+
+  /* CORE BELIEF */
+  .belief-block {
+    background: var(--ink);
+    color: white;
+    padding: 64px;
+    margin: 48px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .belief-block::after {
+    content: '"';
+    position: absolute;
+    right: 40px;
+    top: -20px;
+    font-family: 'Playfair Display', serif;
+    font-size: 200px;
+    color: rgba(255,255,255,0.04);
+    line-height: 1;
+  }
+
+  .belief-block p {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 3vw, 34px);
+    font-weight: 700;
+    line-height: 1.4;
+    position: relative;
+    z-index: 1;
+  }
+
+  .belief-block p em {
+    color: var(--accent);
+    font-style: italic;
+  }
+
+  /* YET BOX */
+  .yet-box {
+    border: 3px solid var(--accent);
+    padding: 48px;
+    margin: 48px 0;
+    display: grid;
+    grid-template-columns: 1fr 60px 1fr;
+    gap: 0;
+    align-items: center;
+  }
+
+  .yet-box .side {
+    padding: 24px;
+  }
+
+  .yet-box .side-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .yet-box .side-label.wrong { color: var(--muted); }
+  .yet-box .side-label.right { color: var(--accent2); }
+
+  .yet-box .phrase {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .yet-box .phrase.wrong {
+    color: var(--muted);
+    text-decoration: line-through;
+    text-decoration-color: var(--accent);
+  }
+
+  .yet-box .phrase.right {
+    color: var(--ink);
+  }
+
+  .yet-box .phrase.right em {
+    color: var(--accent2);
+    font-style: italic;
+    border-bottom: 3px solid var(--accent2);
+  }
+
+  .yet-box .arrow {
+    text-align: center;
+    font-size: 28px;
+    color: var(--accent);
+  }
+
+  /* 3 LAYERS */
+  .layers {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 48px 0;
+  }
+
+  .layer {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 0;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .layer-num {
+    background: var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--muted);
+    transition: all 0.3s;
+    min-height: 100px;
+  }
+
+  .layer-content {
+    background: var(--card-bg);
+    padding: 28px 36px;
+    border-left: 4px solid transparent;
+    transition: all 0.3s;
+  }
+
+  .layer:hover .layer-num { background: var(--ink); color: white; }
+  .layer:hover .layer-content { border-left-color: var(--accent); }
+
+  .layer-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+
+  .layer-content p {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* COMPARE TABLE */
+  .compare {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 48px 0;
+    font-size: 15px;
+  }
+
+  .compare thead tr {
+    background: var(--ink);
+    color: white;
+  }
+
+  .compare th {
+    padding: 20px 28px;
+    text-align: left;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .compare th:first-child { width: 25%; }
+
+  .compare td {
+    padding: 20px 28px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+
+  .compare tbody tr:nth-child(even) td {
+    background: var(--card-bg);
+  }
+
+  .compare .topic {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  .compare .fixed-col { color: var(--muted); }
+  .compare .growth-col { color: var(--accent2); font-weight: 500; }
+
+  /* PRINCIPLE BLOCKS */
+  .principle {
+    margin: 64px 0;
+    padding-bottom: 64px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .principle:last-child { border-bottom: none; }
+
+  .principle-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+
+  .principle-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 80px;
+    font-weight: 900;
+    color: var(--border);
+    line-height: 0.9;
+    flex-shrink: 0;
+  }
+
+  .principle-title {
+    padding-top: 8px;
+  }
+
+  .principle-title h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  .principle-title .subtitle {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+
+  .principle-body {
+    font-size: 17px;
+    color: #3a3530;
+    margin-bottom: 36px;
+    line-height: 1.8;
+  }
+
+  .principle-body strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* EXAMPLES */
+  .examples-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .examples-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.4;
+  }
+
+  .example-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .example-card {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 0;
+    overflow: hidden;
+  }
+
+  .example-card .card-icon {
+    background: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: white;
+    font-weight: 700;
+  }
+
+  .example-card .card-body {
+    background: var(--card-bg);
+    padding: 20px 24px;
+    border: 1px solid var(--border);
+    border-left: none;
+  }
+
+  .example-card .card-context {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  .example-card .card-fixed {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 8px;
+    padding: 8px 12px;
+    background: rgba(0,0,0,0.04);
+    border-left: 3px solid var(--muted);
+  }
+
+  .example-card .card-fixed::before {
+    content: '✗ Fixed: ';
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+
+  .example-card .card-growth {
+    color: var(--accent2);
+    font-size: 15px;
+    font-weight: 500;
+    padding: 10px 12px;
+    background: rgba(26, 92, 58, 0.06);
+    border-left: 3px solid var(--accent2);
+  }
+
+  .example-card .card-growth::before {
+    content: '✓ Growth: ';
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+
+  /* MISCONCEPTION */
+  .myth-block {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 36px;
+    margin: 16px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .myth-block .myth-side h4 {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .myth-block .myth-side.wrong h4 { color: var(--accent); }
+  .myth-block .myth-side.right h4 { color: var(--accent2); }
+
+  .myth-block .myth-side p { font-size: 15px; line-height: 1.7; color: #3a3530; }
+  .myth-block .myth-side.wrong p { color: var(--muted); }
+
+  /* ACTION SYSTEM */
+  .action-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 48px 0;
+  }
+
+  .action-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s;
+  }
+
+  .action-card:hover { transform: translateY(-3px); }
+
+  .action-card::before {
+    content: attr(data-num);
+    position: absolute;
+    right: 16px;
+    top: 8px;
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    font-weight: 900;
+    color: rgba(0,0,0,0.04);
+    line-height: 1;
+  }
+
+  .action-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .action-card p { font-size: 14px; color: var(--muted); line-height: 1.65; }
+
+  .action-card .frequency {
+    margin-top: 16px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding: 4px 10px;
+    border: 1px solid var(--accent);
+    display: inline-block;
+  }
+
+  /* TEST */
+  .test-section {
+    background: var(--ink);
+    padding: 100px 60px;
+  }
+
+  .test-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .test-section .section-label { color: var(--gold); }
+  .test-section h2 { color: white; }
+
+  .test-scenarios {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .scenario {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 32px;
+  }
+
+  .scenario-q {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 20px;
+    line-height: 1.4;
+  }
+
+  .scenario-q::before {
+    content: 'Tình huống: ';
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 400;
+  }
+
+  .scenario-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .option {
+    padding: 14px 20px;
+    font-size: 15px;
+    cursor: pointer;
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.7);
+    transition: all 0.25s;
+    background: transparent;
+    text-align: left;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .option:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.3); color: white; }
+  .option.selected-fixed { background: rgba(200,57,10,0.2); border-color: var(--accent); color: #ff8a6a; }
+  .option.selected-growth { background: rgba(26,92,58,0.3); border-color: #4caf6a; color: #7de8a0; }
+
+  .option-result {
+    margin-top: 16px;
+    padding: 16px 20px;
+    font-size: 14px;
+    line-height: 1.7;
+    display: none;
+  }
+
+  .option-result.show { display: block; }
+  .option-result.fixed-result { background: rgba(200,57,10,0.15); color: #ff8a6a; border-left: 3px solid var(--accent); }
+  .option-result.growth-result { background: rgba(26,92,58,0.2); color: #7de8a0; border-left: 3px solid #4caf6a; }
+
+  /* CLOSING */
+  .closing {
+    background: var(--accent);
+    padding: 100px 60px;
+    text-align: center;
+  }
+
+  .closing h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 6vw, 80px);
+    font-weight: 900;
+    color: white;
+    line-height: 1;
+    letter-spacing: -2px;
+    margin-bottom: 32px;
+  }
+
+  .closing h2 em {
+    font-style: italic;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .closing p {
+    color: rgba(255,255,255,0.8);
+    font-size: 18px;
+    max-width: 560px;
+    margin: 0 auto 48px;
+    line-height: 1.75;
+  }
+
+  .closing-questions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .closing-questions .q {
+    background: rgba(255,255,255,0.15);
+    padding: 16px 24px;
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 17px;
+    border-left: 3px solid rgba(255,255,255,0.5);
+    text-align: left;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* PROGRESS */
+  .progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: var(--accent);
+    z-index: 999;
+    transition: width 0.1s;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .hero { padding: 60px 28px; }
+    .toc { padding: 0 20px; }
+    .section { padding: 64px 28px; }
+    .belief-block { padding: 36px 28px; }
+    .yet-box { grid-template-columns: 1fr; padding: 28px; }
+    .yet-box .arrow { transform: rotate(90deg); margin: 12px 0; }
+    .myth-block { grid-template-columns: 1fr; }
+    .action-grid { grid-template-columns: 1fr; }
+    .test-section { padding: 64px 28px; }
+    .closing { padding: 64px 28px; }
+    .principle-num { font-size: 56px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-label">Tài liệu cốt lõi · Growth Mindset</div>
+  <h1>Bạn chưa<br>làm được.<br><em>Yet.</em></h1>
+  <p class="hero-sub">Một từ thay đổi tất cả. Không phải động lực — mà là kiến trúc tư duy.</p>
+  <blockquote class="hero-quote">
+    "Tài năng chỉ là điểm khởi đầu. Nỗ lực là thứ khơi dậy tài năng và biến nó thành kết quả."
+    <cite>— Carol S. Dweck, Stanford</cite>
+  </blockquote>
+  <div class="scroll-hint">↓ Cuộn để bắt đầu</div>
+</section>
+
+<!-- TOC -->
+<nav class="toc">
+  <a href="#foundation">Nền tảng</a>
+  <a href="#compare">So sánh</a>
+  <a href="#principles">5 Nguyên lý</a>
+  <a href="#misconceptions">Hiểu lầm</a>
+  <a href="#system">Hệ thống</a>
+  <a href="#test">Tự kiểm tra</a>
+</nav>
+
+<!-- SECTION 1: FOUNDATION -->
+<section class="section" id="foundation">
+  <div class="section-label">01 · Nền tảng</div>
+  <h2>Một niềm tin<br><em>thay đổi tất cả</em></h2>
+
+  <div class="belief-block fade-in">
+    <p>
+      Growth Mindset không phải là "suy nghĩ tích cực".<br>
+      Nó là niềm tin có bằng chứng khoa học rằng:<br><br>
+      <em>Năng lực của bạn là điểm hiện tại — không phải điểm cuối cùng.</em>
+    </p>
+  </div>
+
+  <p class="big-text fade-in">
+    Chữ quan trọng nhất:<br>
+    <span class="highlight">"Yet"</span>
+  </p>
+
+  <div class="yet-box fade-in">
+    <div class="side">
+      <div class="side-label wrong">Fixed Mindset nói:</div>
+      <div class="phrase wrong">"Tôi không giỏi làm việc này."</div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="side">
+      <div class="side-label right">Growth Mindset nói:</div>
+      <div class="phrase right">"Tôi chưa giỏi làm việc này — <em>yet.</em>"</div>
+    </div>
+  </div>
+
+  <p style="color: var(--muted); font-size: 15px; margin-top: 24px;" class="fade-in">
+    <strong style="color: var(--ink);">Tại sao "yet" quan trọng?</strong><br>
+    Không phải vì nó khiến bạn cảm thấy tốt hơn — mà vì nó mô tả đúng thực tế sinh học của não bộ. 
+    Neuroplasticity (tính linh hoạt của não) xác nhận: não người <em>thay đổi cấu trúc vật lý</em> khi học. 
+    "Chưa giỏi" là trạng thái thực, không phải an ủi.
+  </p>
+
+  <div class="layers fade-in" style="margin-top: 64px;">
+    <div class="layer">
+      <div class="layer-num">1</div>
+      <div class="layer-content">
+        <h3>Niềm tin nền tảng</h3>
+        <p>Tin rằng năng lực, trí tuệ, kỹ năng đều có thể phát triển — không phải cố định từ khi sinh ra.</p>
+      </div>
+    </div>
+    <div class="layer">
+      <div class="layer-num">2</div>
+      <div class="layer-content">
+        <h3>Hành động có chiến lược</h3>
+        <p>Không chỉ cố gắng nhiều hơn — mà cố gắng thông minh hơn. Phân tích thất bại, thay đổi cách tiếp cận, thử lại khác đi.</p>
+      </div>
+    </div>
+    <div class="layer">
+      <div class="layer-num">3</div>
+      <div class="layer-content">
+        <h3>Đọc tín hiệu khó chịu đúng cách</h3>
+        <p>Cảm giác khó, không thoải mái, muốn bỏ cuộc = não đang học. Đây là tín hiệu tiến bộ, không phải tín hiệu dừng.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SECTION 2: COMPARE -->
+<section class="section" id="compare">
+  <div class="section-label">02 · So sánh</div>
+  <h2>Fixed <em>vs</em><br>Growth</h2>
+
+  <table class="compare fade-in">
+    <thead>
+      <tr>
+        <th>Tình huống</th>
+        <th>Fixed Mindset</th>
+        <th>Growth Mindset</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="topic">Gặp thử thách</td>
+        <td class="fixed-col">Né tránh — vì sợ thất bại lộ ra mình kém</td>
+        <td class="growth-col">Đón nhận — đây là cơ hội để não phát triển</td>
+      </tr>
+      <tr>
+        <td class="topic">Nhận phê bình</td>
+        <td class="fixed-col">Phòng thủ, giải thích, đổ lỗi hoàn cảnh</td>
+        <td class="growth-col">Hỏi: "Phần nào đúng? Mình học được gì?"</td>
+      </tr>
+      <tr>
+        <td class="topic">Thất bại</td>
+        <td class="fixed-col">"Tôi là kẻ thất bại" — ảnh hưởng đến danh tính</td>
+        <td class="growth-col">"Tôi đã thất bại lần này" — chỉ là dữ liệu</td>
+      </tr>
+      <tr>
+        <td class="topic">Nỗ lực</td>
+        <td class="fixed-col">Dấu hiệu của kẻ không đủ tài năng</td>
+        <td class="growth-col">Con đường duy nhất để phát triển năng lực</td>
+      </tr>
+      <tr>
+        <td class="topic">Người giỏi hơn</td>
+        <td class="fixed-col">Đe dọa — cảm thấy kém cỏi, ghen tị</td>
+        <td class="growth-col">Cảm hứng — học hỏi từ họ, tìm mentor</td>
+      </tr>
+      <tr>
+        <td class="topic">Tiềm năng</td>
+        <td class="fixed-col">Cố định — đã biết mình làm được gì</td>
+        <td class="growth-col">Chưa xác định — phụ thuộc vào quá trình</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="divider"></div>
+
+<!-- SECTION 3: 5 PRINCIPLES -->
+<section class="section" id="principles">
+  <div class="section-label">03 · Nguyên lý</div>
+  <h2>5 nguyên lý<br><em>cốt lõi</em></h2>
+
+  <!-- PRINCIPLE 1 -->
+  <div class="principle fade-in">
+    <div class="principle-header">
+      <div class="principle-num">01</div>
+      <div class="principle-title">
+        <div class="subtitle">Nguyên lý đầu tiên</div>
+        <h3>Nỗ lực là con đường — không phải dấu hiệu yếu kém</h3>
+      </div>
+    </div>
+    <div class="principle-body">
+      Fixed Mindset tin rằng: nếu bạn thực sự tài năng, mọi thứ đến tự nhiên, không cần cố gắng nhiều. 
+      Vì vậy khi phải cố gắng nhiều, họ nghĩ "mình không đủ giỏi".<br><br>
+      Growth Mindset hiểu rằng: <strong>nỗ lực chính là cơ chế vật lý để não bộ thay đổi</strong>. 
+      Không có nỗ lực = không có tăng trưởng thần kinh = không có phát triển năng lực. Đây là sinh học, không phải triết lý.
+    </div>
+
+    <div class="examples-label">3 ví dụ thực tế</div>
+    <div class="example-cards">
+      <div class="example-card">
+        <div class="card-icon">1</div>
+        <div class="card-body">
+          <div class="card-context">Học kỹ năng mới · Marketing</div>
+          <div class="card-fixed">Mình học HubSpot mà vẫn không hiểu. Chắc mình không hợp với kỹ thuật.</div>
+          <div class="card-growth">HubSpot cần thời gian. Mình đang học đúng thứ khó — đó là lý do đang phát triển. Học thêm 30 phút mỗi ngày trong 2 tuần nữa rồi đánh giá lại.</div>
+        </div>
+      </div>
+      <div class="example-card">
+        <div class="card-icon">2</div>
+        <div class="card-body">
+          <div class="card-context">Viết content · LinkedIn</div>
+          <div class="card-fixed">Bài viết đầu tiên của mình chỉ được 12 like. Mình không có khiếu viết lách.</div>
+          <div class="card-growth">12 like là dữ liệu, không phải bản án. Bài nào được nhiều tương tác hơn? Tại sao? Mình sẽ viết thêm 20 bài để có đủ dữ liệu để rút kết luận.</div>
+        </div>
+      </div>
+      <div class="example-card">
+        <div class="card-icon">3</div>
+        <div class="card-body">
+          <div class="card-context">Quản lý đội nhóm</div>
+          <div class="card-fixed">Mình giải thích rõ ràng vậy mà Phước vẫn không hiểu. Anh ta không có năng lực.</div>
+          <div class="card-growth">Cách mình giải thích chưa phù hợp với cách anh ấy tiếp nhận thông tin. Thử cách khác — ví dụ cụ thể hơn, hoặc để anh ấy tự thực hành trước.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRINCIPLE 2 -->
+  <div class="principle fade-in">
+    <div class="principle-header">
+      <div class="principle-num">02</div>
+      <div class="principle-title">
+        <div class="subtitle">Nguyên lý thứ hai</div>
+        <h3>Thất bại là dữ liệu — không phải danh tính</h3>
+      </div>
+    </div>
+    <div class="principle-body">
+      Điểm mấu chốt nhất để phân biệt: Fixed Mindset gắn thất bại với <strong>con người</strong>. 
+      Growth Mindset gắn thất bại với <strong>hành động</strong>.<br><br>
+      "Tôi thất bại" → định nghĩa lại bản thân → tránh thử lại để bảo vệ cái tôi.<br>
+      "Chiến lược này thất bại" → thông tin hữu ích → điều chỉnh và thử lại.
+    </div>
+
+    <div class="examples-label">3 ví dụ thực tế</div>
+    <div class="example-cards">
+      <div class="example-card">
+        <div class="card-icon">1</div>
+        <div class="card-body">
+          <div class="card-context">Chiến dịch marketing</div>
+          <div class="card-fixed">Chiến dịch TVC này thất bại. Mình đã tệ trong việc lập kế hoạch.</div>
+          <div class="card-growth">Chiến dịch này chưa đạt mục tiêu. Phần nào không hiệu quả: thông điệp, kênh phân phối, hay timing? Lần sau điều chỉnh điểm nào trước?</div>
+        </div>
+      </div>
+      <div class="example-card">
+        <div class="card-icon">2</div>
+        <div class="card-body">
+          <div class="card-context">Pitch với sếp</div>
+          <div class="card-fixed">Đề xuất bị từ chối. Mình không biết cách thuyết phục lãnh đạo.</div>
+          <div class="card-growth">Đề xuất này chưa thuyết phục được. Sếp quan tâm đến điều gì mình chưa trả lời được? Con số ROI? Rủi ro? Mình cần bổ sung gì cho lần sau?</div>
+        </div>
+      </div>
+      <div class="example-card">
+        <div class="card-icon">3</div>
+        <div class="card-body">
+          <div class="card-context">Xây dựng thói quen cá nhân</div>
+          <div class="card-fixed">Mình đã bỏ lịch viết LinkedIn 3 ngày liên tiếp. Mình thiếu kỷ luật, không thay đổi được.</div>
+          <div class="card-growth">Hệ thống của mình có vấn đề — không phải bản thân mình. Trigger nào khiến mình bỏ? Làm sao thiết kế lại để dễ duy trì hơn?</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRINCIPLE 3 -->
+  <div class="principle fade-in">
+    <div class="principle-header">
+      <div class="principle-num">03</div>
+      <div class="principle-title">
+        <div class="subtitle">Nguyên lý thứ ba</div>
+        <h3>Phê bình là tài nguyên — không phải tấn công</h3>
+      </div>
+    </div>
+    <div class="principle-body">
+      Người có Fixed Mindset nghe phê bình như đang nghe <strong>bản án về năng lực của mình</strong>, 
+      nên phản ứng tự nhiên là phòng thủ.<br><br>
+      Người có Growth Mindset nghe phê bình như đang nhận <strong>dữ liệu miễn phí từ góc nhìn người ngoài</strong> 
+      — thứ họ không tự nhìn thấy được.
+    </div>
+
+    <div class="examples-label">3 ví dụ thực tế</div>
+    <div class="example-cards">
+      <div class="example-card">
+        <div class="card-icon">1</div>
+        <div class="card-body">
+          <div class="card-context">Sếp góp ý về báo cáo</div>
+          <div class="card-fixed">Sếp lại chê báo cáo. Mình đã làm rất cẩn thận rồi mà. Ông ấy khó tính.</div>
+          <div class="card-growth">Sếp chỉ ra điểm nào cụ thể? Mình chưa trình bày theo cách ông ấy cần đọc. Lần sau format như thế nào sẽ phù hợp hơn?</div>
+        </div>
+      </div>
+      <div class="example-card">
+        <div class="card-icon">2</div>
+        <div class="card-body">
+          <div class="card-context">Nhân sự phản hồi về cách quản lý</div>
+          <div class="card-fixed">Phước nói mình giao việc không rõ ràng. Mình đã nói rõ rồi mà, anh ấy không chú ý thôi.</div>
+          <div class="card-growth">Nếu người nhận thấy không rõ ràng, thì với họ là không rõ ràng — dù mình nghĩ ngược lại. Mình cần cải thiện cách giao việc, không phải tranh cãi ai đúng.</div>
+        </div>
+      </div>
+      <div class="example-card">
+        <div class="card-icon">3</div>
+        <div class="card-body">
+          <div class="card-context">Bài viết LinkedIn bị bình luận phê bình</div>
+          <div class="card-fixed">Người này không hiểu gì mà dám comment. Mình bỏ qua thôi.</div>
+          <div class="card-growth">Trong phê bình này có phần nào đúng không? Nếu có, mình học được gì? Nếu không, cũng không sao — nhưng phải xem xét trước khi bỏ qua.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRINCIPLE 4 -->
+  <div class="principle fade-in">
+    <div class="principle-header">
+      <div class="principle-num">04</div>
+      <div class="principle-title">
+        <div class="subtitle">Nguyên lý thứ tư</div>
+        <h3>Quá trình quan trọng hơn kết quả</h3>
+      </div>
+    </div>
+    <div class="principle-body">
+      Không phải nghĩa là kết quả không quan trọng. Mà là: <strong>kết quả tốt bền vững chỉ đến từ quá trình tốt</strong>. 
+      Người chỉ tập trung vào kết quả sẽ cắt góc, né khó khăn, không học thật sự. 
+      Người tập trung vào quá trình sẽ xây được năng lực thật.<br><br>
+      Câu hỏi đúng không phải "kết quả có đạt không?" mà là "mình đang làm đúng quá trình chưa?"
+    </div>
+
+    <div class="examples-label">3 ví dụ thực tế</div>
+    <div class="example-cards">
+      <div class="example-card">
+        <div class="card-icon">1</div>
+        <div class="card-body">
+          <div class="card-context">OKR & KPI</div>
+          <div class="card-fixed">Tháng này KPI chưa đạt. Mình cần tăng số lượng hoạt động lên để bù.</div>
+          <div class="card-growth">KPI chưa đạt là kết quả. Nguyên nhân nằm ở quá trình nào? Tăng số lượng mà không sửa quy trình thì chỉ tốn sức hơn mà thôi.</div>
+        </div>
+      </div>
+      <div class="example-card">
+        <div class="card-icon">2</div>
+        <div class="card-body">
+          <div class="card-context">Xây kênh nội dung</div>
+          <div class="card-fixed">Kênh YouTube của mình sau 3 tháng chỉ có 200 sub. Thất bại rồi, bỏ thôi.</div>
+          <div class="card-growth">3 tháng với 200 sub — mình có đang đúng quy trình: đăng đều, phân tích video nào hiệu quả, cải thiện chất lượng không? Nếu có, tiếp tục. Kết quả đến sau.</div>
+        </div>
+      </div>
+      <div class="example-card">
+        <div class="card-icon">3</div>
+        <div class="card-body">
+          <div class="card-context">Phát triển nhân sự</div>
+          <div class="card-fixed">Mình đã training Uyên 2 tuần nhưng cô ấy vẫn làm chậm. Đào tạo không hiệu quả.</div>
+          <div class="card-growth">2 tuần chưa đủ để thành thạo. Mình đang đúng phương pháp không: có feedback loop không, có bài thực hành cụ thể không? Quá trình đúng thì kết quả sẽ đến.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRINCIPLE 5 -->
+  <div class="principle fade-in">
+    <div class="principle-header">
+      <div class="principle-num">05</div>
+      <div class="principle-title">
+        <div class="subtitle">Nguyên lý thứ năm</div>
+        <h3>Không ai hoàn toàn Growth — đó là thực tế</h3>
+      </div>
+    </div>
+    <div class="principle-body">
+      Carol Dweck nhấn mạnh: <strong>mỗi người là sự pha trộn của cả hai tư duy</strong>, 
+      và tỷ lệ đó thay đổi theo từng lĩnh vực, từng cảm xúc, từng thời điểm.<br><br>
+      Bạn có thể có Growth Mindset khi học kỹ năng mới, nhưng Fixed Mindset khi bị phê bình về tính cách. 
+      Mục tiêu không phải là "trở thành người Growth Mindset hoàn toàn" — mà là <strong>nhận ra được lúc nào mình đang Fixed và chuyển sang</strong>.
+    </div>
+
+    <div class="examples-label">3 ví dụ thực tế</div>
+    <div class="example-cards">
+      <div class="example-card">
+        <div class="card-icon">1</div>
+        <div class="card-body">
+          <div class="card-context">Trigger cá nhân</div>
+          <div class="card-fixed">Mình luôn có Growth Mindset — mình là người cởi mở mà.</div>
+          <div class="card-growth">Mình Growth Mindset trong học kỹ năng, nhưng khi bị chê cách quản lý, mình thấy phòng thủ ngay. Đó là trigger Fixed Mindset của mình — cần chú ý điểm đó.</div>
+        </div>
+      </div>
+      <div class="example-card">
+        <div class="card-icon">2</div>
+        <div class="card-body">
+          <div class="card-context">Áp lực cao</div>
+          <div class="card-fixed">Lúc bình thường mình Growth lắm, nhưng deadline gấp thì mình hay cáu.</div>
+          <div class="card-growth">Đúng — áp lực là trigger của Fixed Mindset. Mình cần nhận ra sớm hơn khi cơ chế đó kích hoạt và dừng lại một chút trước khi phản ứng.</div>
+        </div>
+      </div>
+      <div class="example-card">
+        <div class="card-icon">3</div>
+        <div class="card-body">
+          <div class="card-context">Lĩnh vực không tự tin</div>
+          <div class="card-fixed">Mình không có năng khiếu nói chuyện trước đám đông — đó là tính cách của mình.</div>
+          <div class="card-growth">Đây là Fixed Mindset. Public speaking là kỹ năng học được — không phải tính cách bẩm sinh. Mình chưa luyện đủ, không phải không có "năng khiếu".</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SECTION 4: MISCONCEPTIONS -->
+<section class="section" id="misconceptions">
+  <div class="section-label">04 · Cảnh báo</div>
+  <h2>3 hiểu lầm<br><em>nguy hiểm nhất</em></h2>
+
+  <div class="myth-block fade-in">
+    <div class="myth-side wrong">
+      <h4>❌ Hiểu lầm 1</h4>
+      <p>"Growth Mindset = luôn suy nghĩ tích cực, tin mình làm được mọi thứ."</p>
+    </div>
+    <div class="myth-side right">
+      <h4>✓ Thực tế</h4>
+      <p>Growth Mindset <em>thừa nhận thực tế hiện tại</em> — "mình chưa làm được" — và giữ cửa mở cho tương lai. Không phải phủ nhận khó khăn.</p>
+    </div>
+  </div>
+
+  <div class="myth-block fade-in">
+    <div class="myth-side wrong">
+      <h4>❌ Hiểu lầm 2</h4>
+      <p>"Chỉ cần cố gắng hơn là sẽ phát triển."</p>
+    </div>
+    <div class="myth-side right">
+      <h4>✓ Thực tế</h4>
+      <p>Nỗ lực <em>cộng với chiến lược đúng cộng với phản tư</em>. Cố gắng không đúng hướng chỉ là lặp lại sai lầm nhanh hơn.</p>
+    </div>
+  </div>
+
+  <div class="myth-block fade-in">
+    <div class="myth-side wrong">
+      <h4>❌ Hiểu lầm 3</h4>
+      <p>"Tôi đã có Growth Mindset rồi — tôi là người cởi mở mà."</p>
+    </div>
+    <div class="myth-side right">
+      <h4>✓ Thực tế</h4>
+      <p>Người thực sự có Growth Mindset <em>không tuyên bố họ có nó</em> — họ liên tục tìm kiếm nơi Fixed Mindset của mình đang ẩn náu.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SECTION 5: SYSTEM -->
+<section class="section" id="system">
+  <div class="section-label">05 · Hệ thống</div>
+  <h2>Không phải thái độ.<br><em>Là hệ thống.</em></h2>
+
+  <p style="color: var(--muted); margin-bottom: 48px; font-size: 16px;" class="fade-in">
+    Growth Mindset thật sự không phải là cảm hứng buổi sáng. Nó là tập hợp các câu hỏi và thói quen 
+    bạn thực hành đủ để chúng trở thành phản xạ mặc định.
+  </p>
+
+  <div class="action-grid fade-in">
+    <div class="action-card" data-num="1">
+      <h4>Câu hỏi sau thất bại</h4>
+      <p>"Chiến lược nào không hiệu quả? Mình cần thay đổi gì — không phải đổ lỗi cho ai?"</p>
+      <span class="frequency">Mỗi khi thất bại</span>
+    </div>
+    <div class="action-card" data-num="2">
+      <h4>Nhật ký học tập</h4>
+      <p>"Hôm nay mình học được gì? Điều gì còn khó? Mình sẽ tiếp cận khác đi như thế nào?"</p>
+      <span class="frequency">Hàng ngày · 5 phút</span>
+    </div>
+    <div class="action-card" data-num="3">
+      <h4>Phản tư phê bình</h4>
+      <p>Khi nhận phê bình: hỏi "phần nào đúng?" trước khi phản ứng. Dành 24h nếu cần.</p>
+      <span class="frequency">Mỗi khi nhận feedback</span>
+    </div>
+    <div class="action-card" data-num="4">
+      <h4>Nhận diện trigger Fixed</h4>
+      <p>Hỏi: "Mình đang né tránh thứ gì vì sợ làm không tốt?" — đó là Fixed Mindset đang ẩn náu.</p>
+      <span class="frequency">Hàng tuần · review</span>
+    </div>
+    <div class="action-card" data-num="5">
+      <h4>Chuyển ngôn ngữ nội tâm</h4>
+      <p>"Tôi không thể" → "Tôi chưa thể." "Tôi tệ ở X" → "Tôi chưa đủ thời gian luyện X."</p>
+      <span class="frequency">Liên tục · ngay bây giờ</span>
+    </div>
+    <div class="action-card" data-num="6">
+      <h4>Tìm người giỏi hơn</h4>
+      <p>Thay vì né tránh người giỏi hơn (trigger Fixed), chủ động học từ họ. Họ là bản đồ, không phải đe dọa.</p>
+      <span class="frequency">Định kỳ · tìm mentor</span>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6: TEST -->
+<section class="test-section" id="test">
+  <div class="test-inner">
+    <div class="section-label">06 · Tự kiểm tra</div>
+    <h2 style="color: white;">Bạn đang ở đâu<br><em style="color: rgba(255,255,255,0.5);">thật sự?</em></h2>
+    <p style="color: rgba(255,255,255,0.5); margin-top: 16px; font-size: 15px;">Chọn phản ứng trung thực đầu tiên trong đầu bạn — không phải phản ứng bạn nghĩ là đúng.</p>
+
+    <div class="test-scenarios">
+      <!-- Q1 -->
+      <div class="scenario">
+        <div class="scenario-q">Sếp vừa góp ý thẳng thắn rằng bài báo cáo của bạn "chưa thuyết phục, cần làm lại". Phản ứng đầu tiên trong đầu bạn là gì?</div>
+        <div class="scenario-options">
+          <button class="option" onclick="answer(this, 'fixed', 'q1')">A. "Mình đã cố gắng rất nhiều rồi mà. Sếp không hiểu công sức mình bỏ ra."</button>
+          <button class="option" onclick="answer(this, 'fixed', 'q1')">B. "Chắc mình không có năng khiếu viết báo cáo."</button>
+          <button class="option" onclick="answer(this, 'growth', 'q1')">C. "Cụ thể phần nào chưa thuyết phục? Mình cần hiểu để làm tốt hơn."</button>
+          <button class="option" onclick="answer(this, 'growth', 'q1')">D. "Báo cáo này chưa đạt — không phải mình tệ. Mình cần học thêm cách trình bày số liệu."</button>
+        </div>
+        <div class="option-result fixed-result" id="q1-fixed">
+          <strong>Fixed Mindset đang kích hoạt.</strong> Bạn đang gắn thất bại với con người (mình tệ) hoặc bảo vệ cái tôi (sếp không hiểu). Câu hỏi đúng: "Phần nào cụ thể cần cải thiện?"
+        </div>
+        <div class="option-result growth-result" id="q1-growth">
+          <strong>Growth Mindset.</strong> Bạn đang tách thất bại ra khỏi danh tính và tìm thông tin hữu ích từ phê bình. Đây là phản xạ đúng cần luyện đến khi thành tự nhiên.
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="scenario">
+        <div class="scenario-q">Bạn thấy một đồng nghiệp trẻ hơn đang làm marketing digital giỏi hơn bạn rõ rệt. Cảm giác đầu tiên?</div>
+        <div class="scenario-options">
+          <button class="option" onclick="answer(this, 'fixed', 'q2')">A. Không thoải mái — cảm thấy bản thân đang tụt hậu.</button>
+          <button class="option" onclick="answer(this, 'growth', 'q2')">B. Tò mò — muốn biết họ học từ đâu, làm thế nào.</button>
+          <button class="option" onclick="answer(this, 'fixed', 'q2')">C. Biện minh — "Họ có nhiều thời gian hơn mình thôi."</button>
+          <button class="option" onclick="answer(this, 'growth', 'q2')">D. Cảm hứng — đây là bằng chứng mình có thể học được nếu đầu tư đúng.</button>
+        </div>
+        <div class="option-result fixed-result" id="q2-fixed">
+          <strong>Fixed Mindset.</strong> Người giỏi hơn đang kích hoạt phản ứng đe dọa — vì bạn xem năng lực là cuộc thi cố định, không phải hành trình. Thử nhìn họ như bản đồ, không phải đối thủ.
+        </div>
+        <div class="option-result growth-result" id="q2-growth">
+          <strong>Growth Mindset.</strong> Bạn dùng người giỏi hơn như nguồn học tập và bằng chứng về khả năng — không phải mối đe dọa. Đây là tư duy đúng.
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="scenario">
+        <div class="scenario-q">Bạn thử một kỹ năng mới (ví dụ: quay video, public speaking) và lần đầu rất tệ. Bạn nghĩ gì?</div>
+        <div class="scenario-options">
+          <button class="option" onclick="answer(this, 'fixed', 'q3')">A. "Mình không có tố chất này. Thôi tập trung vào thứ mình giỏi sẵn."</button>
+          <button class="option" onclick="answer(this, 'growth', 'q3')">B. "Lần đầu ai cũng tệ. Mình cần thêm bao nhiêu lần luyện tập để có tiến bộ rõ rệt?"</button>
+          <button class="option" onclick="answer(this, 'fixed', 'q3')">C. "Người khác làm được ngay từ đầu — chắc mình thiếu năng khiếu."</button>
+          <button class="option" onclick="answer(this, 'growth', 'q3')">D. "Cụ thể mình cần cải thiện điểm nào? Tìm ai có thể cho mình feedback thật."</button>
+        </div>
+        <div class="option-result fixed-result" id="q3-fixed">
+          <strong>Fixed Mindset.</strong> Bạn dùng kết quả lần đầu để kết luận về "tố chất" — đây là sai lầm kinh điển. Không ai giỏi từ lần đầu. "Tố chất" phần lớn là số giờ luyện tập đúng cách.
+        </div>
+        <div class="option-result growth-result" id="q3-growth">
+          <strong>Growth Mindset.</strong> Bạn xem thất bại đầu tiên là dữ liệu và bắt đầu lên kế hoạch cải thiện — không phải bản án về năng lực.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="closing">
+  <h2>Bắt đầu<br>từ <em>hôm nay.</em></h2>
+  <p>Không cần thay đổi tất cả cùng lúc. Bắt đầu bằng 3 câu hỏi này — hỏi mỗi tối.</p>
+  <div class="closing-questions">
+    <div class="q">"Hôm nay mình học được gì — dù nhỏ?"</div>
+    <div class="q">"Thất bại hoặc khó khăn nào dạy mình điều gì?"</div>
+    <div class="q">"Mình đang né tránh học điều gì vì sợ làm không tốt?"</div>
+  </div>
+</section>
+
+<script>
+  // Progress bar
+  window.addEventListener('scroll', () => {
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = (window.scrollY / total) * 100;
+    document.getElementById('progressBar').style.width = progress + '%';
+  });
+
+  // Fade in observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Quiz
+  function answer(btn, type, qId) {
+    const siblings = btn.parentElement.querySelectorAll('.option');
+    siblings.forEach(s => { s.classList.remove('selected-fixed', 'selected-growth'); });
+    btn.classList.add(type === 'fixed' ? 'selected-fixed' : 'selected-growth');
+
+    const fixedResult = document.getElementById(qId + '-fixed');
+    const growthResult = document.getElementById(qId + '-growth');
+    fixedResult.classList.remove('show');
+    growthResult.classList.remove('show');
+
+    if (type === 'fixed') fixedResult.classList.add('show');
+    else growthResult.classList.add('show');
+  }
+</script>
+</body>
+</html>
